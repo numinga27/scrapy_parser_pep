@@ -20,8 +20,7 @@
 <blockquote>scrapy genspider pep peps.python.org</blockquote>
 запуск паука:
 <blockquote>scrapy crawl pep</blockquote>
-запуск тестов:
-<blockquote>pytest</blockquote>
+
 
 ## Автор 
 Крылов Андрей тг @numinga92
