@@ -6,21 +6,21 @@
 В первый файл выводится список всех PEP: номер, название и статус.
 Второй файл содержит сводку по статусам PEP — сколько найдено документов в каждом статусе (статус, количество). В последней строке этого файла в колонке «Статус» стоит слово Total, а в колонке «Количество» — общее количество всех документов.
 ## Инструкция по развёртыванию проекта
-клонировать проект на компьютер:
-<blockquote>git clone https://github.com/foxygen-d/scrapy_parser_pep.git</blockquote>
-создание виртуального окружения:
-<blockquote>python3 -m venv venv</blockquote>
-запуск виртуального окружения:
-<blockquote>. venv/bin/activate</blockquote>
-установить зависимости из файла:
-<blockquote>requirements.txt pip install -r requirements.txt</blockquote>
-запуск команды на старт проекта:
-<blockquote>scrapy startproject pep_parse .</blockquote>
-создание паука:
-<blockquote>scrapy genspider pep peps.python.org</blockquote>
-запуск паука:
-<blockquote>scrapy crawl pep</blockquote>
+### клонировать проект на компьютер:
+"git clone https://github.com/foxygen-d/scrapy_parser_pep.git"
+### создание виртуального окружения:
+"python3 -m venv venv"
+### запуск виртуального окружения:
+". venv/bin/activate"
+### установить зависимости из файла:
+"requirements.txt pip install -r requirements.txt"
+### запуск команды на старт проекта:
+"scrapy startproject pep_parse "
+### создание паука:
+"scrapy genspider pep peps.python.org"
+### запуск паука:
+"scrapy crawl pep"
 
 
 ## Автор 
-Крылов Андрей тг @numinga92
+Крылов Андрей тг [http://telegram.com/@numinga92]
