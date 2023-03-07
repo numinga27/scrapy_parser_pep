@@ -4,8 +4,8 @@ import os
 from collections import defaultdict
 from datetime import datetime
 
-from pep_parse.settings import BASE_DIR
 from constants import FILE
+from pep_parse.settings import BASE_DIR
 
 
 class PepParsePipeline:
