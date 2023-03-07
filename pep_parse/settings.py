@@ -1,15 +1,10 @@
-import os
-
 from pathlib import Path
+
+from constants import RESULT
 
 BOT_NAME = 'pep_parse'
 
 BASE_DIR = Path(__file__).parent.parent
-
-RESULT = 'results/pep_%(time)s.csv'
-
-if not os.path.exists('results'):
-    os.makedirs('results')
 
 SPIDER_MODULES = ['pep_parse.spiders']
 

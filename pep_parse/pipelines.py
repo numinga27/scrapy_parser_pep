@@ -1,32 +1,37 @@
 import csv
-from datetime import datetime
+import os
 
 from collections import defaultdict
-from pep_parse.settings import BASE_DIR
+from datetime import datetime
 
-FILE = 'results/status_summary_{0}.csv'
+from pep_parse.settings import BASE_DIR
+from constants import FILE
 
 
 class PepParsePipeline:
-    status_count = defaultdict(int)
 
     def open_spider(self, spider):
-        pass
+        self.status_count = defaultdict(int)
 
     def process_item(self, item, spider):
-        if item['status'] not in PepParsePipeline.status_count:
-            PepParsePipeline.status_count[item['status']] = 0
-        PepParsePipeline.status_count[item['status']] += 1
+        self.status_count[item['status']] += 1
 
         return item
 
     def close_spider(self, spider):
+        if not os.path.exists('results'):
+            os.makedirs('results')
         time = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
         path = BASE_DIR / FILE.format(time)
-        with open(path, mode='w', encoding='utf-8') as csvfile:
-            dialects = csv.unix_dialect
-            writer = csv.writer(csvfile, dialect=dialects,
-                                quoting=csv.QUOTE_ALL)
-            total = sum(self.status_count.values())
-            writer.writerows(['Статус', 'Количество'],
-                             self.status_count.items(), ['Total', total])
+        with open(
+            path, mode='w', encoding='utf-8'
+        ) as csvfile:
+            writer = csv.writer(
+                csvfile, dialect=csv.unix_dialect,
+                quoting=csv.QUOTE_ALL
+            )
+            writer.writerows(
+                ['Статус', 'Количество'],
+                self.status_count.items(),
+                ['Тотал', sum(self.status_count.values())]
+            )

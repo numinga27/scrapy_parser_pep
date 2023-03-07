@@ -7,6 +7,7 @@ class PepSpider(scrapy.Spider):
     name = 'pep'
 
     start_urls = ['https://peps.python.org/']
+    allowed_domains = start_urls
 
     def parse(self, response):
         pep_hrefs = response.css(
