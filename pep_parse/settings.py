@@ -1,11 +1,8 @@
 from pathlib import Path
 
-FILE = 'results/status_summary_{0}.csv'
-RESULT = 'results/pep_%(time)s.csv'
-DIR_NAME = '{0}'
-URL_LIST = ['https://peps.python.org/']
-DOMAIN = ['peps.python.org']
-
+FILE = '{0}/status_summary_{time}.csv'
+DIR_NAME = 'results{0}'
+DOMAINS = 'peps.python.org'
 
 BOT_NAME = 'pep_parse'
 
@@ -16,7 +13,7 @@ SPIDER_MODULES = ['pep_parse.spiders']
 ROBOTSTXT_OBEY = True
 
 FEEDS = {
-    RESULT: {
+    DIR_NAME.format('/pep_%(time)s.csv'): {
         'format': 'csv',
         'fields': ['number', 'name', 'status'],
         'overwrite': True

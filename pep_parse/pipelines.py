@@ -8,7 +8,7 @@ from pep_parse.settings import BASE_DIR, DIR_NAME, FILE
 
 
 class PepParsePipeline:
-    os.makedirs(DIR_NAME.format('results'), exist_ok=True)
+    os.makedirs(DIR_NAME, exist_ok=True)
 
     def open_spider(self, spider):
         self.status_counts = defaultdict(int)
@@ -20,7 +20,7 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         time = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
-        path = BASE_DIR / FILE.format(time)
+        path = BASE_DIR / FILE.format('results', time=time)
         with open(
             path, mode='w', encoding='utf-8'
         ) as csvfile:
