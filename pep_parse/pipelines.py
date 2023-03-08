@@ -4,12 +4,11 @@ import os
 from collections import defaultdict
 from datetime import datetime
 
-from pep_parse.settings import BASE_DIR, FILE, DIR_NAME
+from pep_parse.settings import BASE_DIR, DIR_NAME, FILE
 
 
 class PepParsePipeline:
-    if not os.path.exists(DIR_NAME):
-        os.makedirs(DIR_NAME)
+    os.makedirs(DIR_NAME.format('results'), exist_ok=True)
 
     def open_spider(self, spider):
         self.status_counts = defaultdict(int)

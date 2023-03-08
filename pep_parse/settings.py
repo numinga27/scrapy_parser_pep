@@ -2,8 +2,9 @@ from pathlib import Path
 
 FILE = 'results/status_summary_{0}.csv'
 RESULT = 'results/pep_%(time)s.csv'
-DIR_NAME = 'results'
+DIR_NAME = '{0}'
 URL_LIST = ['https://peps.python.org/']
+DOMAIN = ['peps.python.org']
 
 
 BOT_NAME = 'pep_parse'
