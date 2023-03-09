@@ -1,14 +1,14 @@
 import scrapy
 
 from pep_parse.items import PepParseItem
-from settings import DOMAINS
+from settings import DOMAIN
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
 
-    start_urls = ['https://{0}/'.format(DOMAINS)]
-    allowed_domains = DOMAINS
+    start_urls = ['https://{0}/'.format(DOMAIN)]
+    allowed_domains = DOMAIN
 
     def parse(self, response):
         pep_hrefs = response.css(

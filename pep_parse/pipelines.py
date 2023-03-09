@@ -20,7 +20,7 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         time = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
-        path = BASE_DIR / FILE.format('results', time=time)
+        path = BASE_DIR / FILE.format(DIR_NAME, time=time)
         with open(
             path, mode='w', encoding='utf-8'
         ) as csvfile:
